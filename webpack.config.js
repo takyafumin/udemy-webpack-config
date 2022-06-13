@@ -9,16 +9,24 @@ module.exports = {
         path: path.resolve(__dirname, './dist'),
         filename: 'javascripts/main.js'
     },
+    devServer: {
+        // contentBase: path.join(__dirname, './dist'),
+        hot: false,
+        liveReload: true,
+    },
     module: {
         rules: [
             {
-                test: /\.css/,
+                test: /\.(css|sass|scss)/,
                 use: [
                     {
                         loader: MiniCssExtractPlugin.loader,
                     },
                     {
                         loader: 'css-loader',
+                    },
+                    {
+                        loader: 'sass-loader',
                     },
                 ]
             },
