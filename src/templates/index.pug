@@ -1,12 +1,6 @@
-doctype html
-html(lang="en")
-  head
-    meta(charset="UTF-8")
-    meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    title Template HTML
-  body
-    include _menu.pug
-    h1 Hello world
-    img(src="../images/icon.png")
-    img(src="../images/thumbnail.jpg")
+extends _layout.pug
+block content
+  h1 Hello world
+  img(src="../images/icon.png")
+  img(src="../images/thumbnail.jpg")
 
