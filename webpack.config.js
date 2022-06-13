@@ -4,13 +4,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
+    mode: 'development',
+    devtool: 'source-map',
     entry: './src/javascripts/main.js',
     output: {
         path: path.resolve(__dirname, './dist'),
         filename: 'javascripts/main.js'
     },
     devServer: {
-        // contentBase: path.join(__dirname, './dist'),
         hot: false,
         liveReload: true,
     },
@@ -36,6 +37,9 @@ module.exports = {
                     },
                     {
                         loader: 'css-loader',
+                        options: {
+                            sourceMap: true,
+                        },
                     },
                     {
                         loader: 'sass-loader',
