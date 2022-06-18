@@ -14,6 +14,7 @@
   "devDependencies": {
     "@babel/core": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
+    "@babel/preset-react": "^7.17.12",
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.7.1",
@@ -22,6 +23,8 @@
     "image-webpack-loader": "^8.1.0",
     "mini-css-extract-plugin": "^2.6.0",
     "pug-html-loader": "^1.1.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "sass": "^1.52.3",
     "sass-loader": "^13.0.0",
     "style-loader": "^3.3.1",
