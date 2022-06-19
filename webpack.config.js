@@ -2,11 +2,14 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const { VueLoaderPlugin } = require('vue-loader');
 
 module.exports = {
-    mode: 'development',
+    mode: 'production',
     devtool: 'source-map',
-    entry: './src/javascripts/main.js',
+    entry: {
+        main: './src/javascripts/main.js',
+    },
     output: {
         path: path.resolve(__dirname, './dist'),
         filename: 'javascripts/main.js'
@@ -18,6 +21,15 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.vue/,
+                exclude: /node_modules/,
+                use: [
+                    {
+                        loader: 'vue-loader',
+                    },
+                ],
+            },
+            {
                 test: /\.(ts|tsx)/,
                 exclude: /node_modules/,
                 use: [
@@ -27,7 +39,7 @@ module.exports = {
                 ]
             },
             {
-                test: /\.js/,
+                test: /\.(js|jsx)/,
                 exclude: /node_modules/,
                 use: [
                     {
@@ -65,13 +77,6 @@ module.exports = {
                     filename: 'images/[name][ext]',
                 },
                 use: [
-                    // {
-                    //     loader: 'file-loader',
-                    //     options: {
-                    //         esModule: false,
-                    //         name: 'images/[name].[ext]'
-                    //     }
-                    // },
                     {
                         loader: 'image-webpack-loader',
                         options: {
@@ -116,6 +121,7 @@ module.exports = {
             filename: 'members/taro.html',
         }),
         new CleanWebpackPlugin(),
+        new VueLoaderPlugin(),
     ],
 }
 
